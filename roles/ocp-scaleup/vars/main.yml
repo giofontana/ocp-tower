@@ -1,0 +1,8 @@
+---
+# vars file for vmware-sync
+config_file: "{{ lookup('env', 'OS_CLIENT_CONFIG_FILE') }}"
+type: node
+master: false
+node: true
+ip_addr: "{{ new_node_host }}"
+new_node_fqdn: "{{ new_node_host }}.{{ domain_name }}"

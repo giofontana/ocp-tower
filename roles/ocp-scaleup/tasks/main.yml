@@ -1,0 +1,32 @@
+---
+# tasks file for jritenour.vmware-cf-miq
+
+#  - name: Restarting connection
+#    command: nmcli con mod ens192 ipv4.dns 192.168.0.11 ipv4.dns-search "example.com"    
+#    when: "'new_node' in group_names" 
+
+  - name: Copying ssh key from bastion to new-node
+    command: sshpass -p {{ new_node_ssh_pass }} ssh-copy-id -i /root/.ssh/id_rsa.pub -o StrictHostKeyChecking=no root@{{ groups['new_node'][0] }}
+    when: "'bastion' in group_names"
+
+  - name: Restarting NetworkManager
+    service:
+      name: NetworkManager
+      state: restarted
+    when: "'new_node' in group_names" 
+
+  - name: Running docker-storage-setup
+    command: docker-storage-setup    
+    when: "'new_node' in group_names"      
+
+  - name: start and enable Docker
+    service:
+      name: docker
+      state: restarted
+      enabled: true
+    when: "'new_node' in group_names"      
+
+  - name: Add node to cluster
+    command: ansible-playbook  -i /etc/ansible/hosts /usr/share/ansible/openshift-ansible/playbooks/openshift-node/scaleup.yml
+    when: "'bastion' in group_names"
+    ignore_errors: True    

@@ -1,0 +1,9 @@
+
+
+1 - Provision new VM using CF with IP inputed by user;
+    Scale up cluster.
+
+2 - Provision new VM using Ansible Tower with IP get from Infoblox;
+    Scale up cluster.
+    
+
