@@ -21,7 +21,7 @@
         type: static
         ip: "{{ vm_nic1_ip }}"
         netmask: "{{ vm_nic1_netmask }}"
-        gateway: "{{{ vm_nic1_gw }}"
+        gateway: "{{ vm_nic1_gw }}"
       customization:
         dns_servers:
         - "{{ dns1 }}"
