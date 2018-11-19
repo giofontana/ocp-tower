@@ -5,6 +5,7 @@
       username: "{{ vcenter_user }}"
       password: "{{ vcenter_pass }}"
       validate_certs: no
+      folder: "/ocp"
       esxi_hostname: "{{ esx_host }}"
       datacenter: "{{ vc_datacenter }}"
       name: "{{ vm_name }}"
