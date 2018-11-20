@@ -10,6 +10,6 @@ var_uri_json:
     "openshift_node_labels": "{'type': 'app'}"
   }
 tower_uri_body:
-    "name": "ocp-teste-2.example.com"
+    "name": "{{ vm_fqdn }}"
     "variables": "{{var_uri_json|to_json}}"
     
