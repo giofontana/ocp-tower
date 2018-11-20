@@ -1,0 +1,15 @@
+---
+
+vm_fqdn: "{{ vm_name }}.{{ domain }}"
+
+var_uri_json:
+  {
+    "openshift_hostname": "{{ vm_fqdn }}",
+    "openshift_public_ip": "{{ vm_nic1_ip }}",
+    "openshift_ip": "{{ vm_nic1_ip }}",
+    "openshift_node_labels": "{'type': 'app'}"
+  }
+tower_uri_body:
+    "name": "ocp-teste-2.example.com"
+    "variables": "{{var_uri_json|to_json}}"
+    

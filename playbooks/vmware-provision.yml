@@ -3,3 +3,4 @@
   connection: local
   roles:
   - ../roles/vmware-provision
+  - ../roles/manage-tower-inventory

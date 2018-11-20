@@ -1,0 +1,12 @@
+---
+  - name: Update Tower Inventory
+    uri:
+      url: https://{{ tower_ip }}/api/v2/groups/{{ tower_ocp_inventory_id }}/hosts/
+      method: POST
+      user: "{{ tower_user }}"
+      password: "{{ tower_passwd }}"
+      body: "{{tower_uri_body|to_json}}"
+      status_code: 201, 204
+      force_basic_auth: yes
+      body_format: json
+      validate_certs: no
