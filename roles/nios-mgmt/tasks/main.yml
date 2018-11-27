@@ -1,0 +1,6 @@
+---
+
+# https://www.infoblox.com/wp-content/uploads/infoblox-deployment-infoblox-rest-api.pdf
+#curl -k -u 'admin:r3dh4t1!' -H 'content-type: application/json' -X POST "https://129.146.146.163/wapi/v2.9/record:a?_return_fields%2B=name,ipv4addrs&_return_as_object=1" -d '{"name":"host.info.com","ipv4addrs":[{"ipv4addr":"192.168.0.95"}]}'
+
+#curl -k -u 'admin:r3dh4t1!' -H 'content-type: application/json' -X POST "https://129.146.146.163/wapi/v1.2/record:a?" -d '{"name":"hot.example.com","ipv4addr":"192.168.0.99"}'

@@ -1,9 +1,16 @@
 
 
-1 - Provision new VM using CF with IP inputed by user;
-    Scale up cluster.
+1. Scale up Openshift cluster running over VMware using a CF Service Catalog: 
+    - User input all required data (like IP, DNS, etc.) in CF;
+    - CF provision new VM in VMware using a template and data from CF;
+    - Add new server in ansible inventory in bastion server and run scale up playbook.
 
-2 - Provision new VM using Ansible Tower with IP get from Infoblox;
-    Scale up cluster.
-    
+2. Scale up Openshift cluster running over VMware using a CF Service Catalog + Ansible Tower:
+    - Same as before but every step performed by Ansible Tower using Tower inventory (not bastion).
+    - Scale up Openshift cluster running over VMware using a CF Service Catalog + Ansible Tower with Infoblox integration:
 
+3. Same as before however fully automated, which means that the provisioning flow will be:
+    - Get next available IP from Infoblox;
+    - Register new server in Infoblox DNS (A record);
+    - Provision new server in VMware;
+    - Add new server in Tower inventory and run scale up cluster.
